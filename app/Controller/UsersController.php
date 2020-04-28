@@ -9,6 +9,7 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
 	public function beforeFilter() {
     parent::beforeFilter();
+    // $this->Auth->allow('initDB');
     $this->Auth->allow('index', 'view');
 	}
 	public function initDB(){

@@ -11,7 +11,28 @@ class UsersController extends AppController {
     parent::beforeFilter();
     $this->Auth->allow('index', 'view');
 	}
-	
+	public function initDB(){
+		$group = $this->User->Group;
+		//Allow admins to everything
+		$group->id = 1;
+		$this->Acl->allow($group,'controllers');
+		//Allow managers to posts and widget
+		$group->id = 2;
+		$this->Acl->deny($group,'controllers');
+		$this->Acl->allow($group,'controllers/Posts');
+		$this->Acl->allow($group,'controllers/Widgets');
+		//Allow managers to only add and edit on posts and widgets
+		$group->id = 3;
+		$this->Acl->deny($group,'controllers');
+		$this->Acl->allow($group,'controllers/Posts/add');
+		$this->Acl->allow($group,'controllers/Posts/edit');
+		$this->Acl->allow($group,'controllers/Widgets/add');
+		$this->Acl->allow($group,'controllers/Widgets/edit');
+		//allow basic users to logout
+		$this->Acl->allow($group,'controllers/users/logout');
+		//we add an exit to avoid ugly missing views error message
+		echo "all done";exit;
+	}
 	public function login() {
 		if ($this->Session->read('Auth.User')) {
         $this->Session->setFlash('You are logged in!');

@@ -36,7 +36,7 @@ class GroupsController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-		$this->Acl->allow($aroAlias, $acoAlias);
+		// $this->Acl->allow($aroAlias, $acoAlias);
 		if (!$this->Group->exists($id)) {
 			throw new NotFoundException(__('Invalid group'));
 		}
@@ -50,7 +50,7 @@ class GroupsController extends AppController {
  * @return void
  */
 	public function add() {
-		$this->Acl->allow($aroAlias, $acoAlias);
+		// $this->Acl->allow($aroAlias, $acoAlias);
 		if ($this->request->is('post')) {
 			$this->Group->create();
 			if ($this->Group->save($this->request->data)) {
@@ -70,7 +70,7 @@ class GroupsController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-		$this->Acl->allow($aroAlias, $acoAlias);
+		// $this->Acl->allow($aroAlias, $acoAlias);
 		if (!$this->Group->exists($id)) {
 			throw new NotFoundException(__('Invalid group'));
 		}
@@ -95,7 +95,7 @@ class GroupsController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
-		$this->Acl->allow($aroAlias, $acoAlias);
+		// $this->Acl->allow($aroAlias, $acoAlias);
 		if (!$this->Group->exists($id)) {
 			throw new NotFoundException(__('Invalid group'));
 		}

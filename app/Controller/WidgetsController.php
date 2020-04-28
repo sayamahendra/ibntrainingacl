@@ -36,7 +36,7 @@ class WidgetsController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-		$this->Acl->allow($aroAlias, $acoAlias);
+		// $this->Acl->allow($aroAlias, $acoAlias);
 		if (!$this->Widget->exists($id)) {
 			throw new NotFoundException(__('Invalid widget'));
 		}
@@ -50,7 +50,7 @@ class WidgetsController extends AppController {
  * @return void
  */
 	public function add() {
-		$this->Acl->allow($aroAlias, $acoAlias);
+		// $this->Acl->allow($aroAlias, $acoAlias);
 		if ($this->request->is('post')) {
 			$this->Widget->create();
 			if ($this->Widget->save($this->request->data)) {
@@ -70,7 +70,7 @@ class WidgetsController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-		$this->Acl->allow($aroAlias, $acoAlias);
+		// $this->Acl->allow($aroAlias, $acoAlias);
 		if (!$this->Widget->exists($id)) {
 			throw new NotFoundException(__('Invalid widget'));
 		}
@@ -95,7 +95,7 @@ class WidgetsController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
-		$this->Acl->allow($aroAlias, $acoAlias);
+		// $this->Acl->allow($aroAlias, $acoAlias);
 		if (!$this->Widget->exists($id)) {
 			throw new NotFoundException(__('Invalid widget'));
 		}

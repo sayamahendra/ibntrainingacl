@@ -49,7 +49,7 @@ class PostsController extends AppController {
  * @return void
  */
 	public function add() {
-		$this->Acl->allow($aroAlias, $acoAlias);
+		// $this->Acl->allow($aroAlias, $acoAlias);
 		if ($this->request->is('post')) {
 			$this->Post->create();
 			if ($this->Post->save($this->request->data)) {
@@ -71,7 +71,7 @@ class PostsController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-		$this->Acl->allow($aroAlias, $acoAlias);
+		// $this->Acl->allow($aroAlias, $acoAlias);
 		if (!$this->Post->exists($id)) {
 			throw new NotFoundException(__('Invalid post'));
 		}
@@ -98,7 +98,7 @@ class PostsController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
-		$this->Acl->allow($aroAlias, $acoAlias);
+		// $this->Acl->allow($aroAlias, $acoAlias);
 		if (!$this->Post->exists($id)) {
 			throw new NotFoundException(__('Invalid post'));
 		}
